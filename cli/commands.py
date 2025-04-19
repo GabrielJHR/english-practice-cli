@@ -11,15 +11,15 @@ def practice(text):
     echo(f"LLM Response: {response}")
     conversation = {'user_input': text, 'llm_response': response}
     # Load existing conversations first, then add new one and save
-    conversations = load_conversations('./conversations.json')
+    conversations = load_conversations('./data/conversations.json')
     conversations.append(conversation)
-    save_conversations('./conversations.json', conversations)
+    save_conversations('./data/conversations.json', conversations)
     echo("Conversation saved.")
 
 @command()
 def history():
     """Display the history of conversations."""
-    conversations = load_conversations('./conversations.json')
+    conversations = load_conversations('./data/conversations.json')
     if not conversations:
         echo("No conversation history found.")
     else:
